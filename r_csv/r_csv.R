@@ -12,7 +12,7 @@ webpage <- read_html(url)
 
 # Extract csv example
 csv_example <- webpage %>%
-  html_nodes(xpath = '//*[contains(text(), "Year,Make,Model,Description,Price")]') %>%
+  html_nodes(xpath = '//h2[contains(., "Example")]//following::pre[1]') %>%
   html_text()
 csv_lines <- unlist(strsplit(csv_example, "\n"))
 
